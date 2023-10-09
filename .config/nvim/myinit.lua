@@ -85,6 +85,8 @@ local cmp = require'cmp'
   require('lspconfig')['pylsp'].setup {
     capabilities = capabilities
   }
-
+  require('lspconfig')['yamlls'].setup {
+    capabilities = capabilities
+  }
 
 -- see this guys code to help make snipits work https://github.com/msharma24/.dotfiles/blob/main/.config/nvim/nvim/lua/config
