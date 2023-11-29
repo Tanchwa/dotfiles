@@ -48,6 +48,10 @@ POWERLEVEL9K_STATUS_ERROR_FOREGROUND=214 #239
 POWERLEVEL9K_TIME_BACKGROUND=208
 POWERLEVEL9K_TIME_FOREGROUND=235
 
+#POWERLEVEL9K_CUSTOM_SPOTIFY="echo ' $(spotify status | sed -n '2p;4p' | tr '\n' ' ')'"
+#POWERLEVEL9K_CUSTOM_SPOTIFY_BACKGROUND=235
+#POWERLEVEL9K_CUSTOM_SPOTIFY_FOREGROUND=106
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -122,11 +126,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='nvim'
+ else
+   export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

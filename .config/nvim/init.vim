@@ -80,6 +80,9 @@ augroup terraform_filetype
         autocmd BufWritePre *.tfvars lua vim.lsp.buf.format()
         autocmd BufWritePre *.tf lua vim.lsp.buf.format()
 augroup END
+augroup json_filetype
+        autocmd BufWritePre *.json :%! jq
+augroup END
 let g:terraform_fmt_on_save=1
 let g:terraform_align=1
 

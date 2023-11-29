@@ -38,7 +38,7 @@ local cmp = require'cmp'
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'vsnip' }, -- For vsnip users.
-      -- { name = 'luasnip' }, -- For luasnip users.
+      { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
       -- { name = 'snippy' }, -- For snippy users.
     }, {
@@ -88,5 +88,18 @@ local cmp = require'cmp'
   require('lspconfig')['yamlls'].setup {
     capabilities = capabilities
   }
-
+--  require('lspconfig')['azure_pipelines_ls'].setup {
+--    settings = {
+--      yaml = {
+--          schemas = {
+--              ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
+--                  "/azure-pipeline*.y*l",
+--                  "/*.azure*",
+--                  "Azure-Pipelines/**/*.y*l",
+--                  "Pipelines/*.y*l",
+--         },
+--        },
+--      },
+--    },
+--  }
 -- see this guys code to help make snipits work https://github.com/msharma24/.dotfiles/blob/main/.config/nvim/nvim/lua/config
