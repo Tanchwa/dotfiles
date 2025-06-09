@@ -46,7 +46,7 @@
         "on-click": "blueberry"
     },    
     "sway/language": {
-        "format": " {}",
+        "format": "  {}",
         "max-length": 5,
         "min-length": 4,        
     },
@@ -69,7 +69,7 @@
     },
     "clock#date": {
         "interval": 20,
-        "format": "{: %a %e/%m}",
+        "format": "  {:%a %e/%m}",
         // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         //"today-format": "<b>{}</b>",
         "on-click": "gnome-calendar"
@@ -206,12 +206,12 @@
     },
 
     "custom/arrow4": {
-        "format": "",
+        "format": " ",
         "tooltip": false
     },
 
     "custom/arrow5": {
-        "format": "",
+        "format": " ",
         "tooltip": false
     },
 
