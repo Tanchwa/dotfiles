@@ -115,7 +115,7 @@ POWERLEVEL9K_TIME_FOREGROUND=235
 plugins=(git terraform python macos git-prompt kube-ps1)
 
 
-source $ZSH
+source $ZSH/oh-my-zsh.sh
 
 
 # User configuration
