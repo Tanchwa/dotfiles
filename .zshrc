@@ -2,7 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/usr/bin/zsh"
+#Commented out for dnf based install
+#export ZSH="/usr/bin/zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -115,7 +116,7 @@ POWERLEVEL9K_TIME_FOREGROUND=235
 plugins=(git terraform python macos git-prompt kube-ps1)
 
 
-source $ZSH
+#source $ZSH
 
 
 # User configuration
