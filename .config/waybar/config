@@ -197,7 +197,7 @@
         "tooltip": false
     },
     "custom/gpu": {
-      "exec": "$HOME/.config/waybar/custom_modules/custom-gpu-lite.sh",
+      "exec": "$HOME/.config/waybar/custom_modules/nvidia_gpu.sh",
       "return-type": "json",
       "format": " {}",
       "interval": 5,
