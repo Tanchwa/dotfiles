@@ -134,11 +134,6 @@ if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='nvim'
 fi
 
-# Compositor Settings
-if uwsm check may-start; then
-    exec uwsm start hyprland.desktop
-fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
