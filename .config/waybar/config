@@ -16,16 +16,21 @@
         "disable-scroll": true,
         "all-outputs": true,
         "format": "{icon}",
+          "persistent-workspaces": {
+            "*": 5
+        },
         "format-icons": {
-            "1": "Home",
-            "2": "Work",
-            "3": "Music",
-            "4": "Game",
-            "5": "Slush",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        }
+          "1": "一",
+          "2": "二",
+          "3": "三",
+          "4": "四",
+          "5": "五",
+          "6": "六",
+          "7": "七",
+          "8": "八",
+          "9": "九",
+          "10": "十",
+        } 
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
