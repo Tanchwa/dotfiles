@@ -16,9 +16,6 @@
         "disable-scroll": true,
         "all-outputs": true,
         "format": "{icon}",
-          "persistent-workspaces": {
-            "*": 5
-        },
         "format-icons": {
           "1": "一",
           "2": "二",
