@@ -265,7 +265,7 @@
       "signal": 8,
         "format-icons": {
             "perf": "",
-            "balanced": ""
+            "balanced": "",
             "quiet": "󰠝"
         },
         "on-click": "$HOME/.config/waybar/custom_modules/cpugovernor.sh switch"
