@@ -265,7 +265,8 @@
       "signal": 8,
         "format-icons": {
             "perf": "",
-            "ondemand": ""
+            "balanced": ""
+            "quiet": "󰠝"
         },
         "on-click": "$HOME/.config/waybar/custom_modules/cpugovernor.sh switch"
         // Requires cpupower to switch governors

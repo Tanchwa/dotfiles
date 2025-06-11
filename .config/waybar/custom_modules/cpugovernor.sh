@@ -1,16 +1,21 @@
 #!/bin/bash
 
-GOVERNOR=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)
+GOVERNOR=$(asusctl profile -p --help | sed -n '2p' | sed 's/Active\ profile\ is\ //')
 
-if [ $GOVERNOR = performance ]; then
+if [ $GOVERNOR = Performance ]; then
 	echo '{"text": "perf", "alt": "perf", "class": "performance", "tooltip": "<b>Governor</b> Performance"}'
 	if [[ $1 = switch ]]; then
-		sudo cpupower frequency-set -g ondemand;pkill -RTMIN+8 waybar;
+		asusctl profile -P Balanced;pkill -RTMIN+8 waybar;
 	fi
 	#echo ''
-elif [ $GOVERNOR = ondemand ]; then
-	echo '{"text": "ondemand", "alt": "ondemand", "class": "ondemand", "tooltip": "<b>Governor</b> On Demand"}'
+elif [ $GOVERNOR = Balanced ]; then
+	echo '{"text": "balanced", "alt": "balanced", "class": "balanced", "tooltip": "<b>Governor</b> Balanced"}'
 	if [[ $1 = switch ]]; then
-		sudo cpupower frequency-set -g performance;pkill -RTMIN+8 waybar;
+		asusctl profile -P Quiet;pkill -RTMIN+8 waybar;
+	fi
+elif [ $GOVERNOR = Quiet ]; then
+	echo '{"text": "quiet", "alt": "quiet", "class": "balanced", "tooltip": "<b>Governor</b> Quiet"}'
+	if [[ $1 = switch ]]; then
+		asusctl profile -P Performance;pkill -RTMIN+8 waybar;
 	fi
 fi
