@@ -8,7 +8,7 @@
     // Choose the order of the modules
 
     "modules-left": ["clock#time", "clock#date", "sway/language", "custom/arrow1", "custom/scratchpad-indicator", "custom/pacman", "custom/arrow2", "idle_inhibitor", "custom/arrow3",  "custom/playerctl"],
-    "modules-center": ["custom/arrow4", "sway/workspaces", "custom/arrow5"],
+    "modules-center": ["custom/arrow4", "hyprland/workspaces#rw", "custom/arrow5"],
     "modules-right": ["custom/arrow6", "custom/cpugovernor", "custom/arrow7",  "temperature", "cpu", "custom/gpu", "custom/arrow8", "network", "custom/kdeconnect", "bluetooth", "pulseaudio", "tray"],
     
     // Modules configuration
@@ -39,9 +39,9 @@
       "on-click": "activate",
       "on-scroll-up": "hyprctl dispatch workspace e+1",
       "on-scroll-down": "hyprctl dispatch workspace e-1",
-      "persistent-workspaces": {
-        "*": 5
-      },
+      //"persistent-workspaces": {
+      //  "*": 5
+      //},
         "format": "{icon} {windows}",
         "format-window-separator": " ",
         "window-rewrite-default": " ",
@@ -62,6 +62,7 @@
           "class<kitty-dropterm>": " ",
           "class<com.mitchellh.ghostty>": " ",
           "class<org.wezfurlong.wezterm>": " ",
+          "class<foot>": " ",
 
           "class<[Tt]hunderbird|[Tt]hunderbird-esr>": " ",
           "class<eu.betterbird.Betterbird>": " ",
@@ -116,8 +117,8 @@
 
           "class<polkit-gnome-authentication-agent-1>": "󰒃 ",
           "class<nwg-look>": " ",
-          "class<ableton>": "🎹 ",
-          "class<bitwig>": "🎹 ",
+          "class<ableton>": "󰙽 ",
+          "class<bitwig>": "󰙽 ",
 
           "class<[Pp]avucontrol|org.pulseaudio.pavucontrol>": "󱡫 ",
           "class<steam>": " ",
@@ -184,7 +185,7 @@
         "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
         "critical-threshold": 75,
         "format-critical": "  {temperatureC}°C",
-        "format": "{icon}  {temperatureC}°C",
+        "format": "{icon}  {temperatureC}°C ",
         "format-icons": ["", "", ""],
         "max-length": 8,
         "min-length": 7,
