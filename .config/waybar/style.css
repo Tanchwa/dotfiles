@@ -86,8 +86,8 @@
 #waybar {
     background: @bg;
     color: @light;
-    font-family: "Cantarell", "Font Awesome 5 Pro";
-    font-size: 9pt;
+    font-family: "Hack Nerd Font", "Cantarell", "Font Awesome 5 Pro";
+    font-size: 6pt;
     font-weight: bold;
 }
 
@@ -218,17 +218,17 @@
 }*/
 
 #custom-arrow1 {
-    font-size: 2em;
+    font-size: 2.3em;
     color: @bg;
     background: @bluetint;
 }
 #custom-arrow2 {
-    font-size: 2em;
+    font-size: 2.3em;
     color: @bluetint;
     background: @font_dark_alternative;
 }
 #custom-arrow3 {
-    font-size: 2em;
+    font-size: 2.3em;
     color: @font_dark_alternative;
     background: @bg;
 }
@@ -243,17 +243,17 @@
     background: @bg;
 }
 #custom-arrow6 {
-    font-size: 2em;
+    font-size: 2.3em;
     color: @font_dark_alternative;
     background: @bg;
 }
 #custom-arrow7 {
-    font-size: 2em;
+    font-size: 2.3em;
     color: @bluetint;
     background: @font_dark_alternative;
 }
 #custom-arrow8 {
-    font-size: 2em;
+    font-size: 2.3em;
     color: @bg;
     background: @bluetint;
 }
