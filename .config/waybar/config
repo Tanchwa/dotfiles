@@ -153,7 +153,7 @@
     "hyprland/language": {
         "format": "  {}",
         "format-en": "En",
-        "format-cn": "Zh",
+        "format-zh": "Zh",
         "max-length": 5,
         "min-length": 4,        
     },
