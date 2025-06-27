@@ -15,7 +15,17 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE="nerdfont-matched"
 
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_fedora_icon dir vcs)
+if cat /etc/*-release | grep "fedora" -iq;
+then
+        POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_fedora_icon dir vcs)
+elif cat /etc/*-release | grep "ubuntu" -iq;
+then 
+        POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_ubuntu_icon dir vcs)
+elif uname -a | grep "darwin" -iq;
+then 
+        POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_mac_icon dir vcs)
+fi
+
 
 POWERLEVEL9K_CUSTOM_MAC_ICON="echo "
 POWERLEVEL9K_CUSTOM_MAC_ICON_BACKGROUND=108
@@ -157,3 +167,5 @@ fi
 
 alias k="kubectl"
 alias nvim="nvim +NvimTreeOpen"
+
+eval $(thefuck --alias)
