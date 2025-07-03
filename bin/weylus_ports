@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [[ $1 == "up" ]]; then
+        sudo firewall-cmd --add-port=1701/tcp
+        sudo firewall-cmd --add-port=9901/tcp
+fi
+
+if [[ $1 == "down" ]]; then
+        sudo firewall-cmd --remove-port=1701/tcp
+        sudo firewall-cmd --remove-port=9901/tcp
+fi
