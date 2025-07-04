@@ -382,10 +382,6 @@
     color: @light;
     background: @mode;
 }
-#battery {
-    background: @battery;
-}
-
 #backlight {
     background: @backlight;
 }
