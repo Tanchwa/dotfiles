@@ -7,11 +7,15 @@
     // "custom/gpu",  "custom/weather","sway/window", "custom/gpu",  "custom/media",  
     // Choose the order of the modules
 
-    "modules-left": ["clock#time", "clock#date", "hyprland/language", "custom/arrow1", "custom/scratchpad-indicator", "custom/pacman", "custom/arrow2", "idle_inhibitor", "custom/arrow3",  "custom/playerctl"],
+    "modules-left": ["clock#time", "clock#date", "hyprland/language", "custom/arrow1", "battery", "custom/arrow2", "idle_inhibitor", "custom/arrow3",  "custom/playerctl"],
     "modules-center": ["custom/arrow4", "hyprland/workspaces#rw", "custom/arrow5"],
-    "modules-right": ["custom/arrow6", "custom/cpugovernor", "custom/arrow7",  "temperature", "cpu", "custom/gpu", "custom/arrow8", "network", "custom/kdeconnect", "bluetooth", "pulseaudio", "tray"],
+    "modules-right": ["custom/arrow6", "custom/cpugovernor", "custom/arrow7",  "temperature", "cpu", "custom/gpu", "custom/arrow8", "network", "bluetooth", "pulseaudio", "tray"],
     
     // Modules configuration
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -218,12 +222,6 @@
         "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\n {bandwidthUpBits}  {bandwidthDownBits}",
         "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n {bandwidthUpBits}  {bandwidthDownBits}"
     },
-    "custom/kdeconnect": {
-      "exec": "$HOME/.config/waybar/custom_modules/custom-kdeconnect.sh battery",
-      "format": " {}",
-      "interval": 60,
-      "on-click": "$HOME/.config/waybar/custom_modules/custom-kdeconnect.sh ring"
-    },   
     "pulseaudio": {
         "scroll-step": 3, // %, can be a float
         "format": "{icon} {volume:2}% {format_source}",

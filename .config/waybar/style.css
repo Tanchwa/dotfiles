@@ -319,6 +319,10 @@
 #custom-cpugovernor.perf {
     
 }
+#battery {
+    background: @bluetint;
+    color: @font_gruv_normal;
+}
 #cpu {
     background: @bluetint;
     color: @font_gruv_normal;
