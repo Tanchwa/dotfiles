@@ -1,0 +1,47 @@
+#!/bin/bash
+
+VM_NAME="windows-vm"
+USB_VENDOR="0x194f"
+USB_PRODUCT="0x010d"
+XML_FILE="/tmp/presonus-usb.xml"
+
+create_usb_xml() {
+  cat > "$XML_FILE" <<EOF
+<hostdev mode='subsystem' type='usb'>
+  <source>
+    <vendor id='$USB_VENDOR'/>
+    <product id='$USB_PRODUCT'/>
+  </source>
+</hostdev>
+EOF
+}
+
+start_vm() {
+  echo "[+] Starting VM: $VM_NAME"
+  virsh start "$VM_NAME"
+
+  echo "[+] Attaching PreSonus USB device..."
+  create_usb_xml
+  virsh attach-device "$VM_NAME" "$XML_FILE" --live --config
+}
+
+stop_vm() {
+  echo "[+] Detaching PreSonus USB device..."
+  create_usb_xml
+  virsh detach-device "$VM_NAME" "$XML_FILE" --live --config
+
+  echo "[+] Shutting down VM: $VM_NAME"
+  virsh shutdown "$VM_NAME"
+}
+
+case "$1" in
+  start)
+    start_vm
+    ;;
+  stop)
+    stop_vm
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}"
+    ;;
+esac
