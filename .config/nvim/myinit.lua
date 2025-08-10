@@ -85,6 +85,9 @@ local cmp = require'cmp'
   require('lspconfig')['pylsp'].setup {
     capabilities = capabilities
   }
+  require('lspconfig')['yamllint'].setup {
+    capabilities = capabilities
+  }
   require('lspconfig')['yamlls'].setup {
     capabilities = capabilities
     settings = {
