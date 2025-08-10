@@ -108,8 +108,8 @@ local cmp = require'cmp'
             ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
           },
         },
-    },
-  }
+      },
+    }
 --  require('lspconfig')['azure_pipelines_ls'].setup {
 --    settings = {
 --      yaml = {
