@@ -11,6 +11,7 @@ require("nvim-tree").setup()
 require('lualine').setup()
 
 
+
 -- config for completion ---
 local cmp = require'cmp'
 
@@ -29,6 +30,26 @@ local cmp = require'cmp'
       -- documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
+      -- Navigate completion menu
+      ["<C-j>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        elseif luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        else
+          fallback()
+        end
+      end, { "i", "s" }),
+    
+      ["<C-k>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        elseif luasnip.jumpable(-1) then
+          luasnip.jump(-1)
+        else
+          fallback()
+        end
+      end, { "i", "s" }),
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
@@ -73,7 +94,23 @@ local cmp = require'cmp'
     })
   })
 
-  -- Set up lspconfig.
+-- Set up lspconfig.
+--
+-- This ensures hover, goto, etc. work for all LSPs
+local on_attach = function(client, bufnr)
+  local opts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+end
+
+-- Make diagnostics visible
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+})
+
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
   require('lspconfig')['terraformls'].setup {
@@ -85,9 +122,9 @@ local cmp = require'cmp'
   require('lspconfig')['pylsp'].setup {
     capabilities = capabilities
   }
-  require('lspconfig')['yamllint'].setup {
-    capabilities = capabilities
-  }
+ -- require('lspconfig')['yamllint'].setup {
+ --   capabilities = capabilities
+ -- }
   require('lspconfig')['yamlls'].setup {
     capabilities = capabilities,
     cmd = { "/opt/yaml-language-server/bin/yaml-language-server", "--stdio" },
