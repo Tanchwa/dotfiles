@@ -154,6 +154,8 @@ vim.diagnostic.config({
           ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
           ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
           ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
+                  "/ado-pipelines/*.y*l",
+                  "/pipelines/*.y*l",
                   "/azure-pipeline*.y*l",
                   "/*.azure*",
                   "Azure-Pipelines/**/*.y*l",
