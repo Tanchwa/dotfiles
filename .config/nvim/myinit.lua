@@ -153,13 +153,10 @@ vim.diagnostic.config({
           ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "*gitlab-ci*.{yml,yaml}",
           ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
           ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
-          ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
-                  "/ado-pipelines/*.y*l",
-                  "/pipelines/*.y*l",
-                  "/azure-pipeline*.y*l",
+          ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/main/service-schema.json"] = {
+                  "*pipelines*/**/*.{yml,yaml}",
                   "/*.azure*",
-                  "Azure-Pipelines/**/*.y*l",
-                  "Pipelines/*.y*l",
+                  "*Pipeline*/**/*.{yml,yaml}",
             },
           },
         },
