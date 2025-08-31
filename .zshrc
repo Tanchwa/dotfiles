@@ -3,6 +3,8 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+# Set gopath
+export $PATH=$PATH:$HOME/go/bin
 
 fastfetch
 
