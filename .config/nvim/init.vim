@@ -19,6 +19,7 @@ Plug 'L3MON4D3/LuaSnip', {'tag': 'v2.*', 'do': 'make install_jsregexp'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'folke/trouble.nvim'
 Plug 'github/copilot.vim'
+Plug 'mfussenegger/nvim-lint'
 
 " Color theme plugins
 Plug 'joshdick/onedark.vim'
@@ -89,3 +90,9 @@ augroup json_filetype
 augroup END
 let g:terraform_fmt_on_save=1
 let g:terraform_align=1
+
+augroup go_filetype
+        silent! autocmd! filetypedetect BufRead,BufNewFile *.go
+        autocmd BufRead,BufNewFile *.go set filetype=go
+        autocmd BufWritePre *.go lua vim.lsp.buf.format()
+augroup END

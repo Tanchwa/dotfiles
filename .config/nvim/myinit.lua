@@ -2,7 +2,7 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
--- vim.opt.termguicolors = true
+--vim.opt.termguicolors = true
 -- configure nvim-tree to still allow other netrw features
 -- nvim-tree.disable_netrw = false
 -- nvim-tree.hijack_netrw = true
@@ -122,9 +122,19 @@ vim.diagnostic.config({
   require('lspconfig')['pylsp'].setup {
     capabilities = capabilities
   }
- -- require('lspconfig')['yamllint'].setup {
- --   capabilities = capabilities
- -- }
+  require('lspconfig')['gopls'].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+      gopls = {
+        gofumpt = true,
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+      },
+    },
+  }
   require('lspconfig')['yamlls'].setup {
     capabilities = capabilities,
     cmd = { "/opt/yaml-language-server/bin/yaml-language-server", "--stdio" },
@@ -153,28 +163,33 @@ vim.diagnostic.config({
           ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "*gitlab-ci*.{yml,yaml}",
           ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
           ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
-          ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/main/service-schema.json"] = {
-                  "*pipelines*/**/*.{yml,yaml}",
+          ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
+                  "/ado-pipelines/*.y*l",
+                  "/pipelines/*.y*l",
+                  "/azure-pipeline*.y*l",
                   "/*.azure*",
-                  "*Pipeline*/**/*.{yml,yaml}",
+                  "Azure-Pipelines/**/*.y*l",
+                  "Pipelines/*.y*l",
             },
           },
         },
       },
     }
 
---  require('lspconfig')['azure_pipelines_ls'].setup {
---    settings = {
---      yaml = {
---          schemas = {
---              ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
---                  "/azure-pipeline*.y*l",
---                  "/*.azure*",
---                  "Azure-Pipelines/**/*.y*l",
---                  "Pipelines/*.y*l",
---         },
---        },
---      },
---    },
---  }
--- see this guys code to help make snipits work https://github.com/msharma24/.dotfiles/blob/main/.config/nvim/nvim/lua/config
+-- setup generic linter
+local lint = require("lint")
+
+lint.linters_by_ft = {
+  python = { "pylint" },
+  go = { "golangcilint" },
+  yaml = { "yamllint" }, 
+  -- terraform = { "tflint" },
+}
+
+-- Auto-run linters
+vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
+  callback = function()
+    lint.try_lint()
+  end,
+})
+
