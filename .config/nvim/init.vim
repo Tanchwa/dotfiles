@@ -20,6 +20,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'folke/trouble.nvim'
 Plug 'github/copilot.vim'
 Plug 'mfussenegger/nvim-lint'
+Plug 'yuukiflow/Arduino-Nvim'
 
 " Color theme plugins
 Plug 'joshdick/onedark.vim'
@@ -29,6 +30,7 @@ Plug 'morhetz/gruvbox'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'folke/trouble.nvim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -95,4 +97,9 @@ augroup go_filetype
         silent! autocmd! filetypedetect BufRead,BufNewFile *.go
         autocmd BufRead,BufNewFile *.go set filetype=go
         autocmd BufWritePre *.go lua vim.lsp.buf.format()
+augroup END
+
+augroup arduino_filetype
+        autocmd!
+        autocmd FileType arduino,ino lua require("Arduino-Nvim")
 augroup END

@@ -193,3 +193,6 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
   end,
 })
 
+
+-- setup Arduino IDE
+
