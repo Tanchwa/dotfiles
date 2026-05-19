@@ -4,7 +4,7 @@ IFS=$'\n\t'
 
 colors="black blue caramel citron firebrick gold green grey highland jade lavender lime olive orange pistachio plasma pumpkin purple red rust sapphire tomato violet white yellow"
 default_color="plasma"
-icon_pack_theme="Gruvbox-Plus-Dark"
+icon_pack_theme="Gruvbox-Plus-Light"
 
 help() {
   printf "Folders color chooser
