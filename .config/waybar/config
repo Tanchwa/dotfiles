@@ -73,7 +73,7 @@
           "title<.*gmail.*>": "󰊫 ",
 
           "class<[Tt]elegram-desktop|org.telegram.desktop|io.github.tdesktop_x64.TDesktop>": " ",
-          "class<discord|[Ww]ebcord|Vesktop>": " ",
+          "class<discord|[Ww]ebcord|Vesktop>": "🎮 ",
           "title<.*whatsapp.*>": " ",
           "title<.*zapzap.*>": " ",
           "title<.*messenger.*>": " ",
@@ -168,10 +168,6 @@
             "deactivated": ""
         },
         "tooltip": "true"
-    },
-    "tray": {
-        //"icon-size": 14,
-        "spacing": 4
     },
     "clock#time": {
         "interval": 10,
