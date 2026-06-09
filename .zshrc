@@ -151,8 +151,10 @@ if [[ -n $SSH_CONNECTION ]]; then
 fi
 
 # Compositor Settings
-if uwsm check may-start; then
-    exec uwsm start hyprland.desktop
+if command -v uwsm &>/dev/null; then
+        if uwsm check may-start; then
+            exec uwsm start hyprland.desktop
+        fi
 fi
 
 # Compilation flags
