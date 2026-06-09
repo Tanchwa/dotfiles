@@ -111,6 +111,32 @@ vim.diagnostic.config({
   update_in_insert = false,
 })
 
+-- can change these into the new format by
+-- making a file for each, and calling the file with vim.lsp.enable('file_name')
+-- example for gopls
+-- return {
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+--     settings = {
+--       gopls = {
+--         gofumpt = true,
+--         analyses = {
+--           unusedparams = true,
+--         },
+--         staticcheck = true,
+--       },
+--     },
+--   }
+--
+--   vim.lsp.enable('gopls')
+--
+--   for global capabilities and on_attach 
+--   keep the line below, but also add
+--   vim.lspc.config("*", {
+        --   capabilities = capabilities,
+        --   on_attach = on_attach
+---  })
+
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
   require('lspconfig')['terraformls'].setup {
@@ -195,4 +221,3 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
 
 
 -- setup Arduino IDE
-
