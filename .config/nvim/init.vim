@@ -21,6 +21,7 @@ Plug 'folke/trouble.nvim'
 Plug 'github/copilot.vim'
 Plug 'mfussenegger/nvim-lint'
 Plug 'yuukiflow/Arduino-Nvim'
+Plug 'coder/claudecode.nvim'
 
 " Color theme plugins
 Plug 'joshdick/onedark.vim'
