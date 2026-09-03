@@ -139,68 +139,19 @@ vim.diagnostic.config({
 
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  require('lspconfig')['terraformls'].setup {
-    capabilities = capabilities
-  }
-  require('lspconfig')['tflint'].setup{
-    capabilities = capabilities
-  }
-  require('lspconfig')['pylsp'].setup {
-    capabilities = capabilities
-  }
-  require('lspconfig')['gopls'].setup {
+  vim.lsp.config("*", {
     capabilities = capabilities,
-    on_attach = on_attach,
-    settings = {
-      gopls = {
-        gofumpt = true,
-        analyses = {
-          unusedparams = true,
-        },
-        staticcheck = true,
-      },
-    },
-  }
-  require('lspconfig')['yamlls'].setup {
-    capabilities = capabilities,
-    cmd = { "/opt/yaml-language-server/bin/yaml-language-server", "--stdio" },
-    settings = {
-      redhat = { telemetry = { enabled = false } },
-      yaml = {
-        completion = true,
-        validate = true,
-        hover = true,
-        format = {
-          enable = true,
-        },
-        schemaStore = {
-          enable = true,
-        },
-        schemas = {
-          kubernetes = "*.yaml",
-          ["https://www.schemastore.org/github-workflow.json"] = ".github/workflows/*",
-          ["https://www.schemastore.org/github-action.json"] = ".github/action.{yml,yaml}",
-          ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks"] = "roles/tasks/*.{yml,yaml}",
-          ["https://www.schemastore.org/prettierrc.json"] = ".prettierrc.{yml,yaml}",
-          ["https://www.schemastore.org/kustomization.json"] = "kustomization.{yml,yaml}",
-          ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/playbook"] = "*play*.{yml,yaml}",
-          ["https://www.schemastore.org/chart.json"] = "Chart.{yml,yaml}",
-          ["https://www.schemastore.org/dependabot-2.0.json"] = ".github/dependabot.{yml,yaml}",
-          ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "*gitlab-ci*.{yml,yaml}",
-          ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
-          ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
-          ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
-                  "/ado-pipelines/*.y*l",
-                  "/pipelines/*.y*l",
-                  "/azure-pipeline*.y*l",
-                  "/*.azure*",
-                  "Azure-Pipelines/**/*.y*l",
-                  "Pipelines/*.y*l",
-            },
-          },
-        },
-      },
-    }
+    on_attach = on_attach
+  })
+
+  -- Per-server overrides live in lsp/<name>.lua; the rest use lspconfig defaults.
+  vim.lsp.enable({
+    'yaml_lsp',
+    'terraformls',
+    'tflint',
+    'pylsp',
+    'gopls',
+  })
 
 -- setup generic linter
 local lint = require("lint")
