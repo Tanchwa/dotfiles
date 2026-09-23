@@ -10,7 +10,7 @@ case "$1" in
         pkill -USR2 foot
         # if monitor is DP-1, set wallpaper to Alps.jpg
         if [[ "$(xrandr --query | grep -e '^DP-1 connected')" ]]; then
-                swww img Pictures/Wallpapers/Dual_wide/Alps.jpg -o DP-1
+                swww img ~/Pictures/Wallpapers/Dual_wide/Alps.jpg -o DP-1
         fi
         swww img Pictures/Wallpapers/gruvbox_light/anime_road.png -o eDP-1
         sed -i 's/initial-color-theme.*/initial-color-theme=light/' ~/.config/hypr/hyprland.conf
@@ -23,7 +23,7 @@ case "$1" in
         pkill -USR1 foot
         # if monitor is DP-1, set wallpaper to city_lights.jpg
         if [[ "$(xrandr --query | grep -e '^DP-1 connected')" ]]; then
-                swww img Pictures/Wallpapers/Dual_wide/city_lights.jpg -o DP-1
+                swww img ~/Pictures/Wallpapers/Dual_wide/city_lights.jpg -o DP-1
         fi
         swww img Pictures/Wallpapers/gruvbox_dark/wallhaven-2e2xyx.jpg -o eDP-1
         sed -i 's/initial-color-theme.*/initial-color-theme=dark/' .config/hypr/hyprland.conf
